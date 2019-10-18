@@ -1,6 +1,5 @@
 - Update Makefile to account for needing to pass a version
 - Figure out a way to stub out the version file as part of the application directory
-- CI doesn't have any release building code
 - CI doesn't have any Docker file building code - either nightly or release
 - Cloudsmith info in config.bash needs to be documented
 - Cloudsmith account setup needs to be documented in setup instructions

@@ -43,6 +43,13 @@ jobs:
       - checkout
       - run: bash .ci-scripts/x86-64-unknown-linux-nightly.bash ${CLOUDSMITH_API_KEY}
 
+  x86-64-unknown-linux-release:
+    docker:
+      - image: ponylang/ponyup-ci-nightly-builder:latest
+    steps:
+      - checkout
+      - run: bash .ci-scripts/x86-64-unknown-linux-release.bash ${CLOUDSMITH_API_KEY}
+
   cut-release:
     docker:
       - image: ponylang/shared-docker-ci-release-a-library:release
@@ -109,9 +116,9 @@ workflows:
             branches:
               ignore: /.*/
 
-  on-release-being-tagged:
+  create-and-upload-release:
     jobs:
-      - generate-documentation-pr-for-main-dot-actor:
+      - x86-64-unknown-linux-release:
           filters:
             tags:
               only: /^\d+\.\d+\.\d+$/
