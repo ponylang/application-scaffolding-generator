@@ -36,6 +36,13 @@ jobs:
       - checkout
       - run: make test config=debug
 
+  x86-64-unknown-linux-nightly:
+    docker:
+      - image: ponylang/ponyup-ci-nightly-builder:latest
+    steps:
+      - checkout
+      - run: bash .ci-scripts/x86-64-unknown-linux-nightly.bash ${CLOUDSMITH_API_KEY}
+
   cut-release:
     docker:
       - image: ponylang/shared-docker-ci-release-a-library:release
@@ -53,11 +60,45 @@ jobs:
 workflows:
   version: 2.1
 
-  on-every-commit:
+  pr-acceptance-tests:
     jobs:
-      - verify-changelog
-      - release-vs-ponyc-release
-      - debug-vs-ponyc-release
+      - verify-changelog:
+          filters:
+            branches:
+              ignore:
+                - master
+      - release-vs-ponyc-release:
+          filters:
+            branches:
+              ignore:
+                - master
+      - debug-vs-ponyc-release:
+          filters:
+            branches:
+              ignore:
+                - master
+
+  daily-check-for-breakage:
+    triggers:
+      - schedule:
+          cron: "0 5 * * *"
+          filters:
+            branches:
+              only: master
+    jobs:
+      - release-vs-ponyc-master
+      - debug-vs-ponyc-master
+
+  create-and-upload-nightly-release:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only: master
+    jobs:
+      - x86-64-unknown-linux-nightly:
+          context: org-global
 
   create-release:
     jobs:
@@ -77,13 +118,3 @@ workflows:
             branches:
               ignore: /.*/
 
-  daily-check-for-breakage:
-    triggers:
-      - schedule:
-          cron: "0 0 * * *"
-          filters:
-            branches:
-              only: master
-    jobs:
-      - release-vs-ponyc-master
-      - debug-vs-ponyc-master
