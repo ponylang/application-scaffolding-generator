@@ -10,8 +10,8 @@ REPO_OWNER="ponylang"
 # Name of the project
 # https://github.com/ponylang/NAME
 REPO_NAME="ponyup"
-# Name of your top-level package
-PACKAGE="ponyup"
+# Name of your application
+APPLICATION="ponyup"
 # Description that will appear at the top of your README file
 PROJECT_DESCRIPTION="The Pony toolchain multiplexer."
 # Short description of your project's status.
@@ -33,3 +33,7 @@ COPYRIGHT_YEAR="2019"
 COPYRIGHT_HOLDER="The Pony Developers"
 # email address that users should use to report code of conduct violations
 COC_EMAIL="coc@example.com"
+#
+CLOUDSMITH_OWNER=""
+#
+CLOUDSMITH_REPO=""

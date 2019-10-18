@@ -106,32 +106,19 @@ The Makefile assumes that you are managing any external dependencies with [stabl
 
 The Makefile assumes that your project will have:
 
-- A single package
-- That your tests are in the top-level of your package.
+- A single application
+- That your tests are in the top-level of your repository.
 - Tests will be built in the `build` directory
-- Example programs located in `examples` that you want to compile as part of
-    "testing"
-
-### Examples
-
-Each example program should be it's own directory in the `examples directory.
-When you run `build-examples` or `test`, example programs will be compiled to
-assure there is no API breakage. They will not, however, be run as there's no
-generic way to validate behavior.
 
 ### Available make commands
 
 - test
 
-Runs the `unit-tests` and `build-examples` commands.
+Runs the `unit-tests` commands.
 
 - unit-tests
 
-Compiles your package and runs the Ponytest tests.
-
-- build-examples
-
-Compiles example programs in `examples` directory.
+Compiles your application and runs the Ponytest tests.
 
 - clean
 
@@ -140,10 +127,6 @@ Removes build artifacts for the specified config (defaults to `release`). Doesn'
 - realclean
 
 Removes all build artifacts regardless of `config` value.
-
-- docs
-
-Builds the public documentation for your the library.
 
 - TAGS
 

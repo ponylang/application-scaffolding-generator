@@ -30,7 +30,7 @@ do
   then
     sed -i s/"{%%REPO_OWNER%%}"/"${REPO_OWNER}"/g "${file}"
     sed -i s/"{%%REPO_NAME%%}"/"${REPO_NAME}"/g "${file}"
-    sed -i s/"{%%PACKAGE%%}"/"${PACKAGE}"/g "${file}"
+    sed -i s/"{%%APPLICATION%%}"/"${APPLICATION}"/g "${file}"
     sed -i s/"{%%PROJECT_DESCRIPTION%%}"/"${PROJECT_DESCRIPTION}"/g "${file}"
     sed -i s/"{%%PROJECT_STATUS%%}"/"${PROJECT_STATUS}"/g "${file}"
     sed -i s/"{%%GITHUB_USER%%}"/"${GITHUB_USER}"/g "${file}"
@@ -46,5 +46,5 @@ done
 mv "${TARGET_DIR}/gitattributes" "${TARGET_DIR}/.gitattributes"
 mv "${TARGET_DIR}/gitignore" "${TARGET_DIR}/.gitignore"
 
-# create PACKAGE directory
-mkdir -p "${TARGET_DIR}/${PACKAGE}"
+# create APPLICATION directory
+mkdir -p "${TARGET_DIR}/${APPLICATION}"
