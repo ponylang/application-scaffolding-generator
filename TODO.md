@@ -10,3 +10,7 @@
 - Docker account setup needs to be documented in setup instructions
 - CI is using "release a library" from shared-docker. That either needs to be renamed or we need a release an application container
 - Check Makefile against ponyup/stable/corral for other possible changes that are needed as current was based off the library version
+- Update what you get to include Docker and Cloudsmith activities
+- Update "behind the scenes" to include Docker and Cloudsmith activities
+- Update templated README to include how to install via Docker
+- Update templated README to include how to install via Cloudsmith
