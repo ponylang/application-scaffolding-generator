@@ -149,6 +149,10 @@ The Pony organization hosts various release packages on [Cloudsmith](https://clo
 
 Please note, that Cloudsmith provides free hosting to open source projects. They ask that in return, you advertise that support on your website. Such a notice is included in the scaffolding README.
 
+## It assumes that CircleCI is set up to build all commits
+
+There's an option in CircleCI that will allow you to only build PRs. The scaffolding configuration has not been tested with that setting turned on and it's entirely possible that using it will break functionality.
+
 ## How to structure your project
 
 The Makefile assumes that your project will have:

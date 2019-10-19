@@ -7,5 +7,4 @@
 - Update templated README to include how to install via Docker
 - Update templated README to include how to install via Cloudsmith
 - CI nightly builder is using ponyup ci builder. Need to move to shared and update.
-- Under assumptions in README, note that CircleCI can't be set to "build only PRs"
 - Document that the Dockerfile needs to be filled out as part of setup information
