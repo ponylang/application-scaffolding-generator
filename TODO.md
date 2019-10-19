@@ -6,3 +6,4 @@
 - Update templated README to include how to install via Cloudsmith
 - CI nightly builder is using ponyup ci builder. Need to move to shared and update.
 - Document that the Dockerfile needs to be filled out as part of setup information
+- Add assumptions about being able to use standard build image for nightlies and releases.
