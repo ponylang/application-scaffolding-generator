@@ -219,3 +219,5 @@ Releasing from any other point is *not* supported at this time.
 - a new "unreleased" section is added to the CHANGELOG and pushed back to your repo
 - A notice of the release is added to [LWIP](https://github.com/ponylang/ponylang-website/issues?q=is%3Aopen+is%3Aissue+label%3Alast-week-in-pony)
 - A notice of the release is posted to the [announce stream](https://ponylang.zulipchat.com/#narrow/stream/189932-announce) in the [Pony Zulip](https://ponylang.zulipchat.com/).
+- Docker images with the tag `release` as well as `X.Y.Z` are created and pushed to DockerHub
+- A .tar.gz archive of the application for x86-64 Linux distributions is built and uploaded the Cloudsmith
