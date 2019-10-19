@@ -26,6 +26,12 @@ bash generate-application.bash TARGET_DIRECTORY
 
 N.B. `generate-application.bash` will create TARGET_DIRECTORY if it doesn't already exist.
 
+## Setup DockerHub
+
+The scaffolding includes creating a new `latest` Docker image on every commit to `master` and release images for each time a release is done. As part of supporting this, you'll need to have a DockerHub account.
+
+In addition to you'll need to have a repository on DockerHub set up for the application. You can't have more than one application share the same repository otherwise their tags will overwrite one another.
+
 ### Setup a Zulip Bot
 
 As part of the included release process, notices about your application being released will be sent to the [Pony Zulip](https://ponylang.zulipchat.com/). If you don't already have an account, please create one now. Once you've created an account, you'll need to create a bot that will be used to post release messages on your behalf.
@@ -51,6 +57,14 @@ You'll still need to setup CircleCI to take advantage of the included CircleCI c
 If you've never set up CircleCI before, we strongly suggest you check our their [documentation](https://circleci.com/docs/2.0/).
 
 You'll need to define the following environment variables as part of your CircleCI project:
+
+- DOCKERHUB_USERNAME
+
+  DockerHub account that can push to the repository that you indicated in `config.bash`.
+
+- DOCKERHUB_PASSWORD
+
+  Password for the account indicated by `DOCKERHUB_USERNAME`.
 
 - GITHUB_TOKEN
 
@@ -101,6 +115,10 @@ Large portions of the scaffolding assume you are using GitHub. We'd welcome PRs 
 ## It assumes that you are using stable for dependency management
 
 The Makefile assumes that you are managing any external dependencies with [stable](https://github.com/ponylang/pony-stable).
+
+## It assumes that you host Docker images on DockerHub
+
+The Docker image recreation and push code assumes that you will be hosting images on Docker Hub. If that isn't true, you'll need to either remove the Docker image creation and pushing or modify it accordingly.
 
 ## How to structure your project
 

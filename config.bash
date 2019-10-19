@@ -39,5 +39,6 @@ CLOUDSMITH_OWNER=""
 CLOUDSMITH_NIGHTLY_REPO=""
 #
 CLOUDSMITH_RELEASE_REPO=""
-#
+# Username and repo combination for hosting docker images
+# e.g. "username/repo" or "organization/repo"
 DOCKER_REPO="ponylang/ponyup"
