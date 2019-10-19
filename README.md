@@ -26,13 +26,32 @@ bash generate-application.bash TARGET_DIRECTORY
 
 N.B. `generate-application.bash` will create TARGET_DIRECTORY if it doesn't already exist.
 
-## Setup DockerHub
+## Set up Cloudsmith
+
+The scaffolding includes support for creating nightly and release builds of your application and uploading them to [Cloudsmith](https://cloudsmith.io/).
+
+You'll need a free Cloudsmith account to take advantage of these features. Hosting on Cloudsmith is free for open source projects.
+
+After creating an account, you'll need to set up at least one repository. Scaffolding will set up creating both nightly builds of your application as well as releases. The assumption is that you will host nightly builds in a different repository from releases. You don't have to however. To set up a repository, you'll need to:
+
+- Click on `repositories' link when you are logged in to your account.
+- Click the `+` link to create a new repository
+  - Give the repository a name, you'll need this later when filling out `config.bash`
+  - DO NOT set the slug value to something different than the repository name
+  - Give the repository a description
+  - Select "Open-Source" as the Repository Type
+  - Select the "Open-Source" license type. To match the license that the scaffolding will set up for you'd want to select "BSD 2-clause 'Simplified' License"
+  - Enter the url for your project like "https://github.com/ponylang/ponyc"
+  - Agree to the 3 terms checkboxes
+  - Click the `Create` button
+
+## Set up DockerHub
 
 The scaffolding includes creating a new `latest` Docker image on every commit to `master` and release images for each time a release is done. As part of supporting this, you'll need to have a DockerHub account.
 
 In addition to you'll need to have a repository on DockerHub set up for the application. You can't have more than one application share the same repository otherwise their tags will overwrite one another.
 
-### Setup a Zulip Bot
+### Set up a Zulip Bot
 
 As part of the included release process, notices about your application being released will be sent to the [Pony Zulip](https://ponylang.zulipchat.com/). If you don't already have an account, please create one now. Once you've created an account, you'll need to create a bot that will be used to post release messages on your behalf.
 
@@ -47,7 +66,7 @@ When setting up the bot you want to:
 
 After you push `Create Bot`, you'll be taken to your list of active bots. Copy the `USERNAME` and `API KEY` for your bot. These values will be used later in CircleCI as your `ZULIP_TOKEN`. Your `ZULIP_TOKEN` will be: `USERNAME:API KEY`.
 
-### Setup CircleCI
+### Set up CircleCI
 
 You'll still need to setup CircleCI to take advantage of the included CircleCI configuration file including the automated release tasks.  To do this, you'll need:
 
@@ -57,6 +76,10 @@ You'll still need to setup CircleCI to take advantage of the included CircleCI c
 If you've never set up CircleCI before, we strongly suggest you check our their [documentation](https://circleci.com/docs/2.0/).
 
 You'll need to define the following environment variables as part of your CircleCI project:
+
+- CLOUDSMITH_API_KEY
+
+  Log in to your Cloudsmith account. Under the menu in the top right corner that is labelled with your username, you'll find an `API Key` option. Select it. It will display your API Key. You'll use it as the value for this environment variable.
 
 - DOCKERHUB_USERNAME
 
@@ -119,6 +142,12 @@ The Makefile assumes that you are managing any external dependencies with [stabl
 ## It assumes that you host Docker images on DockerHub
 
 The Docker image recreation and push code assumes that you will be hosting images on Docker Hub. If that isn't true, you'll need to either remove the Docker image creation and pushing or modify it accordingly.
+
+## It assumes that you host application release artifacts on Cloudsmith
+
+The Pony organization hosts various release packages on [Cloudsmith](https://cloudsmith.io/). The scaffolding assumes that you will as well. Most of the automated release process, as well as nightly builds, is setup to work with Cloudsmith. If you want to host packages elsewhere, you'll need to adjust accordingly.
+
+Please note, that Cloudsmith provides free hosting to open source projects. They ask that in return, you advertise that support on your website. Such a notice is included in the scaffolding README.
 
 ## How to structure your project
 

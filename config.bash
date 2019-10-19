@@ -33,12 +33,14 @@ COPYRIGHT_YEAR="2019"
 COPYRIGHT_HOLDER="The Pony Developers"
 # email address that users should use to report code of conduct violations
 COC_EMAIL="coc@example.com"
-#
-CLOUDSMITH_OWNER=""
-#
-CLOUDSMITH_NIGHTLY_REPO=""
-#
-CLOUDSMITH_RELEASE_REPO=""
+# cloudsmith user/organization that owns of the nightly and release repositories
+CLOUDSMITH_OWNER="ponylang"
+# name of the repository for uploading nightly builds, can be the same as the
+# repository for releases if you want
+CLOUDSMITH_NIGHTLY_REPO="nightlies"
+# name of the repository for uploading releases, can be the same as the
+# repository for nightly builds if you want
+CLOUDSMITH_RELEASE_REPO="releases"
 # Username and repo combination for hosting docker images
 # e.g. "username/repo" or "organization/repo"
 DOCKER_REPO="ponylang/ponyup"

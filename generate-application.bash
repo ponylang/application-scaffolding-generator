@@ -40,6 +40,9 @@ do
     sed -i s/"{%%COPYRIGHT_HOLDER%%}"/"${COPYRIGHT_HOLDER}"/g "${file}"
     sed -i s/"{%%COC_EMAIL%%}"/"${COC_EMAIL}"/g "${file}"
     sed -i s/"{%%DOCKER_REPO%%}"/"${DOCKER_REPO}"/g "${file}"
+    sed -i s/"{%%CLOUDSMITH_OWNER%%}"/"${CLOUDSMITH_OWNER}"/g "${file}"
+    sed -i s/"{%%CLOUDSMITH_NIGHTLY_REPO%%}"/"${CLOUDSMITH_NIGHTLY_REPO}"/g "${file}"
+    sed -i s/"{%%CLOUDSMITH_RELEASE_REPO%%}"/"${CLOUDSMITH_RELEASE_REPO}"/g "${file}"
   fi
 done
 

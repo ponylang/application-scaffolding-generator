@@ -1,8 +1,5 @@
 - Update Makefile to account for needing to pass a version
 - Figure out a way to stub out the version file as part of the application directory
-- Cloudsmith info in config.bash needs to be documented
-- Cloudsmith account setup needs to be documented in setup instructions
-- Cloudsmith config.bash entries aren't in generate script
 - CI is using "release a library" from shared-docker. That either needs to be renamed or we need a release an application container
 - Check Makefile against ponyup/stable/corral for other possible changes that are needed as current was based off the library version
 - Update what you get to include Docker and Cloudsmith activities
