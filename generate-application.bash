@@ -39,6 +39,7 @@ do
     sed -i s/"{%%COPYRIGHT_YEAR%%}"/"${COPYRIGHT_YEAR}"/g "${file}"
     sed -i s/"{%%COPYRIGHT_HOLDER%%}"/"${COPYRIGHT_HOLDER}"/g "${file}"
     sed -i s/"{%%COC_EMAIL%%}"/"${COC_EMAIL}"/g "${file}"
+    sed -i s/"{%%DOCKER_REPO%%}"/"${DOCKER_REPO}"/g "${file}"
   fi
 done
 

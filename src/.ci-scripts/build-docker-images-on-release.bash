@@ -19,12 +19,12 @@ fi
 # .circleci/config.yml.
 TAG=$1
 
-# Build and push :TAG tag e.g. ponyc:0.32.1.
-DOCKER_TAG=ponylang/ponyc:"${TAG}"
+# Build and push :TAG tag e.g. {%%DOCKER_REPO%%}:0.3.1.
+DOCKER_TAG={%%DOCKER_REPO%%}:"${TAG}"
 docker build --file=Dockerfile -t "${DOCKER_TAG}" .
 docker push "${DOCKER_TAG}"
 
-# Build and push "release" tag e.g. ponyc:release
-DOCKER_TAG=ponylang/ponyc:release
+# Build and push "release" tag e.g. {%%DOCKER_REPO%%}:release
+DOCKER_TAG={%%DOCKER_REPO%%}:release
 docker build --file=Dockerfile -t "${DOCKER_TAG}" .
 docker push "${DOCKER_TAG}"
