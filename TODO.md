@@ -3,8 +3,6 @@
 - Cloudsmith info in config.bash needs to be documented
 - Cloudsmith account setup needs to be documented in setup instructions
 - Cloudsmith config.bash entries aren't in generate script
-- Docker create and push needs to entries need to be added to config.bash
-- Docker create and push entries in config.bash need to be used in generate
 - Docker account setup needs to be documented in setup instructions
 - CI is using "release a library" from shared-docker. That either needs to be renamed or we need a release an application container
 - Check Makefile against ponyup/stable/corral for other possible changes that are needed as current was based off the library version
