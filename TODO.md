@@ -1,6 +1,5 @@
 - Update Makefile to account for needing to pass a version
 - Figure out a way to stub out the version file as part of the application directory
-- CI doesn't have any Docker file building code - either nightly or release
 - Cloudsmith info in config.bash needs to be documented
 - Cloudsmith account setup needs to be documented in setup instructions
 - Cloudsmith config.bash entries aren't in generate script
@@ -15,3 +14,5 @@
 - Update templated README to include how to install via Cloudsmith
 - CI nightly builder is using ponyup ci builder. Need to move to shared and update.
 - Under assumptions in README, note that CircleCI can't be set to "build only PRs"
+- Docker building in CI has hard coded repo info for build and push. Needs to be templated
+- "build-docker-images-on-release" has hardcoded repo info for build and push. Needs to be templated
